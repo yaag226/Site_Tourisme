@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Détail du site touristique</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="site-details.css" />
+  <link rel="stylesheet" href="index.html" />
+</head>
+<body>
+
+    <header>
+    <nav class="navbar">
+        <ul class="links-container">
+  <li class="link-item"><a href="index.html">Page d'Accueil</a></li>
+            <li class="link-item"><a href="index.html#explore-section">Patrimoine</a></li>
+            <li class="link-item logo-item">
+                <a href="#hero-section">
+                    <img src="img/logo.png" class="logo" alt="Logo Accra Tourisme" />
+                </a>
+            </li>
+            <li class="link-item"><a href="index.html#services">A propos</a></li>
+            <li class="link-item"><a href="index.html#booknow">Réserver maintenant</a></li>
+        </ul>
+    </nav>
+</header>
+
+
+  <div class="background">
+    <div class="bg-circle"></div>
+    <div class="bg-circle-2"></div>
+  </div>
+
+  <main class="site-container">
+    <div class="site-content">
+      <img src="img/p1.png" alt="Site touristique" class="site-image" />
+      <div class="site-description">
+        <h1 class="site-title">Legon Botanical Gardens de Accra</h1>
+        <p>
+          Les Legon Botanical Gardens sont situés à Accra, au Ghana, dans la zone de l’Université du Ghana à Legon. Créés à l'origine comme un espace de recherche botanique pour l’université, les jardins ont évolué pour devenir un parc public mêlant éducation environnementale, détente et loisirs,un lieu attractif pour les familles, les touristes et les passionnés de nature.
+        </p>
+
+        <div class="reservation-info">
+  <label for="price" class="price-label">Prix de la réservation :</label>
+  <select id="price" class="price-dropdown">
+    <option value="30">30 Cedi</option>
+    <option value="50">50 Cedi</option>
+    <option value="75">75 Cedi</option>
+    <option value="100">100 Cedi</option>
+  </select>
+</div>
+
+        <button class="reserve-button">Réserver une place</button>
+      </div>
+    </div>
+  </main>
+
+  <!-- Galerie en bas -->
+  <section class="gallery-section">
+    <h2 class="gallery-title">Galerie de photos</h2>
+    <div class="gallery-slider">
+      <img src="img/site2.png" alt="photo 1" />
+      <img src="img/site20.png" alt="photo 2" />
+      <img src="img/site4.png" alt="photo 3" />
+      <img src="img/site35.png" alt="photo 4" />
+    </div>
+  </section>
+
+  <!-- Section de localisation -->
+<section class="location-section">
+  <h2 class="location-title">Localisation</h2>
+  <p>Voir l’emplacement du site sur Google Maps :</p>
+  <a href="https://www.google.com/maps?q=48.8584,2.2945" target="_blank" class="location-link">
+    📍 Ouvrir la carte
+  </a>
+</section>
+
+  <!-- Script de défilement automatique -->
+  <script>
+    const images = document.querySelectorAll('.gallery-slider img');
+    let current = 0;
+
+    function showImage(index) {
+      images.forEach((img, i) => {
+        img.classList.toggle('active', i === index);
+      });
+    }
+
+    function nextImage() {
+      current = (current + 1) % images.length;
+      showImage(current);
+    }
+
+    showImage(current);
+    setInterval(nextImage, 3000); // toutes les 3 secondes
+  </script>
+</body>
+
+
+</html>

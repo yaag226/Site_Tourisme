@@ -1,0 +1,178 @@
+/* Harmonisation avec le thème principal */
+body {
+  font-family: 'Poppins', sans-serif;
+  background: #161813; /* même fond que le reste du site */
+  color: #fff;
+  margin: 0;
+  padding: 0;
+  line-height: 1.6;
+}
+
+/* Section de réservation */
+.reservation-section {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 40px 5vw;
+  gap: 40px;
+  background: #161813;
+  margin-top: 95px; /* <<--- espace par rapport au haut de la page */
+}
+
+
+/* Conteneur du formulaire */
+.form-container {
+  flex: 1;
+  min-width: 320px;
+  max-width: 450px;
+  background: #1f211b;
+  color: #fff;
+  border-radius: 12px;
+  padding: 30px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  margin-top: 20px; /* <<--- Ajout de la marge vers le bas */
+}
+
+
+/* Formulaire */
+.reservation-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.reservation-form label {
+  font-weight: 500;
+}
+
+.reservation-form input {
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #2D2D2D;
+  background-color: #0f0f0f;
+  color: #fff;
+}
+
+/* Bouton de soumission */
+.submit-btn {
+  padding: 12px;
+  background-color: #923030;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.submit-btn:hover {
+  background-color: #741f1f;
+}
+
+/* Conteneur des hôtels */
+.hotels-container {
+  flex: 2;
+  min-width: 320px;
+}
+
+/* Grille des hôtels */
+.hotels-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 20px;
+  margin-top: 20px;
+}
+
+/* Carte d'hôtel */
+.hotel-card {
+  background: #1f211b;
+  border: 1px solid #2D2D2D;
+  border-radius: 12px;
+  padding: 15px;
+  text-align: center;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.hotel-card:hover {
+  transform: translateY(-5px);
+}
+
+.hotel-card img {
+  width: 100%;
+  height: 140px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.hotel-card h3 {
+  margin: 10px 0;
+  color: #fff;
+}
+
+/* Bouton de sélection */
+.select-btn {
+  padding: 8px 16px;
+  background-color: #923030;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.select-btn:hover {
+  background-color: #741f1f;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .reservation-section {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+
+/* Bords lumineux animés gauche et droit */
+.glow-border {
+  position: fixed;
+  top: 0;
+  width: 15px;
+  height: 100%;
+  z-index: 1000;
+  pointer-events: none;
+  background: linear-gradient(
+    to bottom,
+    #ff0040,
+    #923030,
+    #ffcc00,
+    #923030,
+    #ff0040
+  );
+  background-size: 100% 300%;
+  animation: glowMove 6s ease-in-out infinite;
+  opacity: 0.7;
+  filter: blur(4px);
+  border-radius: 10px;
+}
+
+.glow-border.left {
+  left: 0;
+}
+
+.glow-border.right {
+  right: 0;
+}
+
+/* Animation du dégradé */
+@keyframes glowMove {
+  0% {
+    background-position: 0 0;
+  }
+  50% {
+    background-position: 0 100%;
+  }
+  100% {
+    background-position: 0 0;
+  }
+}

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Réservation d'Hôtel</title>
+  <link rel="stylesheet" href="reservation.css">
+  <link rel="stylesheet" href="style.css">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+     <div class="glow-border left"></div>
+  <div class="glow-border right"></div>
+    <header>
+    <nav class="navbar">
+        <ul class="links-container">
+  <li class="link-item"><a href="index.html">Page d'Accueil</a></li>
+            <li class="link-item"><a href="index.html#explore-section">Patrimoine</a></li>
+            <li class="link-item logo-item">
+                <a href="#hero-section">
+                    <img src="img/logo.png" class="logo" alt="Logo Accra Tourisme" />
+                </a>
+            </li>
+            <li class="link-item"><a href="index.html#services">A propos</a></li>
+            <li class="link-item"><a href="index.html#booknow">Réserver maintenant</a></li>
+        </ul>
+    </nav>
+</header>
+
+  <section class="reservation-section">
+    <div class="form-container">
+      <h2>Formulaire de Réservation</h2>
+      <form class="reservation-form" action="traitement_reservation.php" method="POST">
+  <label>Nom complet</label>
+  <input type="text" name="nom_complet" placeholder="Votre nom complet" required>
+
+  <label>Email</label>
+  <input type="email" name="email" placeholder="exemple@email.com" required>
+
+  <label>Numéro de téléphone</label>
+  <input type="tel" name="telephone" placeholder="+226 70 00 00 00" required>
+
+  <label>Date d’arrivée</label>
+  <input type="date" name="date_arrivee" required>
+
+  <label>Date de départ</label>
+  <input type="date" name="date_depart" required>
+
+  <label>Nombre de personnes</label>
+  <input type="number" name="nombre_personnes" min="1" placeholder="Ex : 2" required>
+
+  <!-- Champ caché pour l’hôtel choisi -->
+  <input type="hidden" name="hotel_choisi" id="hotel_choisi" value="">
+
+  <button type="submit" class="submit-btn">Valider la réservation</button>
+</form>
+
+    </div>
+
+    <div class="hotels-container">
+      <h2>Hôtels disponibles</h2>
+      <div class="hotels-grid">
+        <div class="hotel-card">
+          <img src="img/hotel1.png" alt="Hotel 1">
+          <h3>Accra Beach Hotels</h3>
+          <button class="select-btn">Réserver</button>
+        </div>
+        <div class="hotel-card">
+          <img src="img/hotel2.png" alt="Hotel 2">
+          <h3>Accra City</h3>
+          <button class="select-btn">Réserver</button>
+        </div>
+        <div class="hotel-card">
+          <img src="img/hotel3.png" alt="Hotel 3">
+          <h3>Accra Marriott Hotel</h3>
+          <button class="select-btn">Réserver</button>
+        </div>
+        <div class="hotel-card">
+          <img src="img/hotel4.png" alt="Hotel 3">
+          <h3>Sunset Hotel</h3>
+          <button class="select-btn">Réserver</button>
+        </div>
+             <div class="hotel-card">
+          <img src="img/hotel5.png" alt="Hotel 3">
+          <h3>Labadi Beach Hotel</h3>
+          <button class="select-btn">Réserver</button>
+        </div>
+          <div class="hotel-card">
+          <img src="img/hotel6.png" alt="Hotel 3">
+          <h3>Bojo Beach</h3>
+          <button class="select-btn">Réserver</button>
+        </div>
+
+        <!-- Ajoute d'autres hôtels ici si besoin -->
+      </div>
+    </div>
+  </section>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const hotelButtons = document.querySelectorAll(".select-btn");
+    const submitButton = document.querySelector(".submit-btn");
+
+    // Désactiver le bouton de soumission au début
+    submitButton.disabled = true;
+    submitButton.style.opacity = 0.6;
+    submitButton.style.cursor = "not-allowed";
+
+   hotelButtons.forEach(btn => {
+  btn.addEventListener("click", () => {
+    submitButton.disabled = false;
+    submitButton.style.opacity = 1;
+    submitButton.style.cursor = "pointer";
+
+    hotelButtons.forEach(b => b.classList.remove("selected-btn"));
+    btn.classList.add("selected-btn");
+
+    // Stocker le nom de l'hôtel dans le champ caché
+    const hotelName = btn.previousElementSibling.textContent;
+    document.getElementById("hotel_choisi").value = hotelName;
+  });
+});
+
+  });
+
+
+</script>
+
+
+
+</body>
+</html>
